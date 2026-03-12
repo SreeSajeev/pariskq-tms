@@ -65,7 +65,7 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
           <h2 className="font-display text-3xl text-foreground md:text-4xl">
             Simple, transparent pricing
