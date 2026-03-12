@@ -25,24 +25,34 @@ function FeatureBlock({ reverse, icon: Icon, badge, headline, body, bullets, moc
     >
       {/* Text */}
       <div className="flex-1 min-w-0">
-        <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100">
-          <Icon className="h-5 w-5 text-primary-800" />
+        <div
+          className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg"
+          style={{ backgroundColor: "hsl(285,45%,30%,0.1)" }}
+        >
+          <Icon className="h-5 w-5 text-primary" />
         </div>
         {badge && (
-          <span className="mb-3 inline-block rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold text-primary-800">
+          <span
+            className="mb-3 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+            style={{
+              backgroundColor: "hsl(285,45%,30%,0.1)",
+              color: "#5C2D6D",
+              border: "1px solid #5C2D6D",
+            }}
+          >
             {badge}
           </span>
         )}
-        <h3 className="mb-3 font-heading text-xl font-bold text-foreground md:text-2xl">
+        <h3 className="mb-3 text-xl font-bold text-primary md:text-2xl">
           {headline}
         </h3>
-        <p className="mb-4 max-w-md text-sm leading-relaxed text-neutral-600">
+        <p className="mb-4 max-w-md text-sm leading-relaxed text-muted-foreground">
           {body}
         </p>
         <ul className="space-y-2">
           {bullets.map((b) => (
-            <li key={b} className="flex items-start gap-2 text-sm text-neutral-700">
-              <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-success-500" />
+            <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+              <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
               {b}
             </li>
           ))}
@@ -66,14 +76,14 @@ function ShipmentTableMockup() {
   ];
   return (
     <div className="rounded-lg border border-border bg-card shadow-lg overflow-hidden">
-      <div className="border-b border-border bg-neutral-50 px-4 py-2.5">
-        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+      <div className="border-b border-border bg-muted px-4 py-2.5">
+        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Active Shipments
         </span>
       </div>
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-neutral-100 text-left text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <tr className="border-b border-muted text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <th className="px-4 py-2.5">Reference</th>
             <th className="px-4 py-2.5 hidden sm:table-cell">Customer</th>
             <th className="px-4 py-2.5">Status</th>
@@ -81,11 +91,11 @@ function ShipmentTableMockup() {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.ref} className="border-b border-neutral-100 last:border-0">
-              <td className="px-4 py-3 font-mono text-xs text-primary-500 font-medium">
+            <tr key={row.ref} className="border-b border-muted last:border-0">
+              <td className="px-4 py-3 font-mono text-xs text-primary font-medium">
                 {row.ref}
               </td>
-              <td className="px-4 py-3 text-neutral-700 hidden sm:table-cell">
+              <td className="px-4 py-3 text-foreground hidden sm:table-cell">
                 {row.customer}
               </td>
               <td className="px-4 py-3">
@@ -101,13 +111,13 @@ function ShipmentTableMockup() {
 
 function MapMockup() {
   return (
-    <div className="rounded-lg border border-border bg-primary-900/95 shadow-lg overflow-hidden p-4">
-      <div className="relative h-48 rounded-md bg-primary-800/60 overflow-hidden">
+    <div className="rounded-lg border border-border bg-primary shadow-lg overflow-hidden p-4">
+      <div className="relative h-48 rounded-md overflow-hidden" style={{ backgroundColor: "hsl(285,45%,22%)" }}>
         <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "linear-gradient(hsl(var(--primary-400)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-400)) 1px, transparent 1px)",
+              "linear-gradient(hsl(285,30%,50%) 1px, transparent 1px), linear-gradient(90deg, hsl(285,30%,50%) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -119,11 +129,11 @@ function MapMockup() {
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
           >
-            <div className="h-3 w-3 rounded-full bg-success-500 shadow-[0_0_8px_hsl(var(--success-500)/0.5)]" />
+            <div className="h-3 w-3 rounded-full" style={{ backgroundColor: "hsl(145,65%,35%)", boxShadow: "0 0 8px hsla(145,65%,35%,0.5)" }} />
           </motion.div>
         ))}
       </div>
-      <p className="mt-3 text-center text-xs text-primary-400/70">
+      <p className="mt-3 text-center text-xs" style={{ color: "hsl(285,30%,70%)" }}>
         Real-time fleet position · Updated every 30s
       </p>
     </div>
@@ -132,20 +142,20 @@ function MapMockup() {
 
 function PODMockup() {
   return (
-    <div className="mx-auto w-52 rounded-2xl border-4 border-neutral-200 bg-card p-3 shadow-lg">
+    <div className="mx-auto w-52 rounded-2xl border-4 border-border bg-card p-3 shadow-lg">
       <div className="mb-2 flex items-center gap-1.5">
-        <div className="h-2 w-2 rounded-full bg-success-500" />
-        <span className="text-[10px] font-semibold text-neutral-600">Delivery Complete</span>
+        <div className="h-2 w-2 rounded-full bg-success" />
+        <span className="text-[10px] font-semibold text-muted-foreground">Delivery Complete</span>
       </div>
-      <div className="mb-2 flex h-28 items-center justify-center rounded-md bg-neutral-100">
-        <Camera className="h-8 w-8 text-neutral-300" />
+      <div className="mb-2 flex h-28 items-center justify-center rounded-md bg-muted">
+        <Camera className="h-8 w-8 text-border" />
       </div>
-      <div className="mb-2 h-12 rounded-md border border-neutral-200 bg-neutral-50 flex items-end justify-center pb-1">
-        <svg viewBox="0 0 120 30" className="h-6 w-24 text-neutral-400">
+      <div className="mb-2 h-12 rounded-md border border-border bg-muted flex items-end justify-center pb-1">
+        <svg viewBox="0 0 120 30" className="h-6 w-24 text-muted-foreground">
           <path d="M5 25 Q 20 5 35 20 Q 50 30 65 15 Q 80 5 95 18 Q 105 22 115 10" fill="none" stroke="currentColor" strokeWidth="1.5" />
         </svg>
       </div>
-      <div className="text-center text-[10px] text-neutral-500">Recipient: Rajesh Kumar</div>
+      <div className="text-center text-[10px] text-muted-foreground">Recipient: Rajesh Kumar</div>
     </div>
   );
 }
@@ -154,15 +164,15 @@ function InvoiceMockup() {
   return (
     <div className="rounded-lg border border-border bg-card p-5 shadow-lg">
       <div className="mb-3 flex items-center justify-between">
-        <span className="font-heading text-sm font-semibold text-foreground">Invoice #INV-2025-00089</span>
+        <span className="text-sm font-semibold text-foreground">Invoice #INV-2025-00089</span>
         <StatusBadge status="SENT" />
       </div>
-      <div className="space-y-2 text-xs text-neutral-600">
-        <div className="flex justify-between border-b border-neutral-100 pb-2">
+      <div className="space-y-2 text-xs text-muted-foreground">
+        <div className="flex justify-between border-b border-muted pb-2">
           <span>TMS-2025-00142 — Pune → Navi Mumbai</span>
           <span className="font-mono tabular-nums">₹26,730</span>
         </div>
-        <div className="flex justify-between border-b border-neutral-100 pb-2">
+        <div className="flex justify-between border-b border-muted pb-2">
           <span>Loading charges</span>
           <span className="font-mono tabular-nums">₹2,500</span>
         </div>
@@ -183,17 +193,17 @@ function ComplianceMockup() {
   ];
   return (
     <div className="rounded-lg border border-border bg-card shadow-lg overflow-hidden">
-      <div className="border-b border-border bg-neutral-50 px-4 py-2.5">
-        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+      <div className="border-b border-border bg-muted px-4 py-2.5">
+        <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           MH-12-AB-1234 — Documents
         </span>
       </div>
-      <div className="divide-y divide-neutral-100">
+      <div className="divide-y divide-muted">
         {docs.map((d) => (
           <div key={d.name} className="flex items-center justify-between px-4 py-3">
             <div>
               <span className="text-sm font-medium text-foreground">{d.name}</span>
-              <p className="text-xs text-neutral-500">Expires {d.expiry}</p>
+              <p className="text-xs text-muted-foreground">Expires {d.expiry}</p>
             </div>
             <StatusBadge status={d.status} />
           </div>
@@ -205,7 +215,7 @@ function ComplianceMockup() {
 
 export function FeaturesSection() {
   return (
-    <section className="bg-neutral-50 py-20 md:py-28" id="features">
+    <section className="bg-muted py-20 md:py-28" id="features">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           className="mb-16 max-w-2xl"
@@ -214,11 +224,11 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
-          <h2 className="font-display text-3xl leading-tight text-foreground md:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
             Everything your fleet needs.{" "}
-            <span className="text-primary-500">Nothing it doesn't.</span>
+            <span className="text-primary">Nothing it doesn't.</span>
           </h2>
-          <p className="mt-3 text-base text-neutral-600">
+          <p className="mt-3 text-base text-muted-foreground">
             Built specifically for Indian transport operators — not adapted from
             a generic Western logistics platform.
           </p>

@@ -24,25 +24,20 @@ export function LandingNav() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
         scrolled
-          ? "bg-card/90 backdrop-blur-md shadow-md border-b border-border"
+          ? "bg-white/90 backdrop-blur-md shadow-md border-b border-border"
           : "bg-transparent"
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <Truck
-            className={cn(
-              "h-6 w-6 transition-colors",
-              scrolled ? "text-primary-500" : "text-primary-400"
-            )}
-          />
+          <Truck className="h-6 w-6 text-primary" />
           <span
             className={cn(
-              "font-heading text-xl font-bold tracking-tight transition-colors",
-              scrolled ? "text-foreground" : "text-primary-foreground"
+              "text-xl font-bold tracking-tight transition-colors",
+              scrolled ? "text-primary" : "text-white"
             )}
           >
             Pariskq
@@ -56,8 +51,8 @@ export function LandingNav() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary-500",
-                scrolled ? "text-neutral-600" : "text-primary-foreground/80"
+                "text-sm font-medium transition-colors hover:text-primary",
+                scrolled ? "text-foreground" : "text-white/80"
               )}
             >
               {link.label}
@@ -75,7 +70,7 @@ export function LandingNav() {
             <a href="/login">Login</a>
           </Button>
           <Button
-            variant={scrolled ? "default" : "hero"}
+            variant="accent"
             size="sm"
             asChild
           >
@@ -90,9 +85,9 @@ export function LandingNav() {
           aria-label="Toggle menu"
         >
           {mobileOpen ? (
-            <X className={scrolled ? "text-foreground" : "text-primary-foreground"} />
+            <X className={scrolled ? "text-foreground" : "text-white"} />
           ) : (
-            <Menu className={scrolled ? "text-foreground" : "text-primary-foreground"} />
+            <Menu className={scrolled ? "text-foreground" : "text-white"} />
           )}
         </button>
       </nav>
@@ -105,14 +100,14 @@ export function LandingNav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-b border-border bg-card md:hidden"
+            className="overflow-hidden border-b border-border bg-white md:hidden"
           >
             <div className="flex flex-col gap-2 px-6 py-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="py-2 text-sm font-medium text-neutral-700 hover:text-primary-500"
+                  className="py-2 text-sm font-medium text-foreground hover:text-primary"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -122,7 +117,7 @@ export function LandingNav() {
                 <Button variant="outline" size="sm" asChild>
                   <a href="/login">Login</a>
                 </Button>
-                <Button variant="default" size="sm" asChild>
+                <Button variant="accent" size="sm" asChild>
                   <a href="/signup">Start Free Trial</a>
                 </Button>
               </div>

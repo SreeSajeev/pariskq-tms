@@ -5,28 +5,28 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold ring-offset-background transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-sm hover:bg-primary-700 active:scale-[0.97]",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-[hsl(285,45%,25%)] active:scale-[0.97] rounded-md",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-danger-700 active:scale-[0.97]",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-[hsl(0,72%,44%)] active:scale-[0.97] rounded-md",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background text-foreground hover:bg-muted rounded-md",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground border border-input hover:bg-muted rounded-md",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground",
+          "text-primary hover:bg-[hsl(285,45%,30%,0.08)] rounded-md",
         link:
-          "text-primary-500 underline-offset-4 hover:underline",
-        hero:
-          "bg-primary-500 text-primary-foreground shadow-lg hover:bg-primary-400 active:scale-[0.97] text-base",
+          "text-primary underline-offset-4 hover:underline",
+        accent:
+          "bg-accent text-accent-foreground shadow-sm hover:bg-[hsl(32,95%,44%)] active:scale-[0.97] rounded-md",
         "hero-outline":
-          "border-2 border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground/10",
+          "border-2 border-white/30 text-white bg-transparent hover:bg-white/10 rounded-md",
         "hero-ghost":
-          "text-primary-foreground/80 hover:text-primary-foreground bg-transparent",
+          "text-white/80 hover:text-white bg-transparent rounded-md",
       },
       size: {
         default: "h-9 px-4 py-2 text-sm",

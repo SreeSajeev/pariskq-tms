@@ -19,9 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        heading: ["DM Sans", "sans-serif"],
-        display: ["DM Serif Display", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
         mono: ["JetBrains Mono", "Courier New", "monospace"],
       },
       colors: {
@@ -33,14 +31,10 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          900: "hsl(var(--primary-900))",
-          800: "hsl(var(--primary-800))",
-          700: "hsl(var(--primary-700))",
-          600: "hsl(var(--primary-600))",
-          500: "hsl(var(--primary-500))",
-          400: "hsl(var(--primary-400))",
-          100: "hsl(var(--primary-100))",
-          50: "hsl(var(--primary-50))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -53,10 +47,6 @@ export default {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -76,50 +66,32 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        neutral: {
-          900: "hsl(var(--neutral-900))",
-          700: "hsl(var(--neutral-700))",
-          600: "hsl(var(--neutral-600))",
-          500: "hsl(var(--neutral-500))",
-          400: "hsl(var(--neutral-400))",
-          300: "hsl(var(--neutral-300))",
-          200: "hsl(var(--neutral-200))",
-          100: "hsl(var(--neutral-100))",
-          50: "hsl(var(--neutral-50))",
-        },
         success: {
-          700: "hsl(var(--success-700))",
-          500: "hsl(var(--success-500))",
-          100: "hsl(var(--success-100))",
-          50: "hsl(var(--success-50))",
+          DEFAULT: "hsl(var(--success))",
+          bg: "hsl(var(--success-bg))",
+          text: "hsl(var(--success-text))",
         },
         warning: {
-          700: "hsl(var(--warning-700))",
-          500: "hsl(var(--warning-500))",
-          400: "hsl(var(--warning-400))",
-          100: "hsl(var(--warning-100))",
-          50: "hsl(var(--warning-50))",
+          DEFAULT: "hsl(var(--warning))",
+          bg: "hsl(var(--warning-bg))",
+          text: "hsl(var(--warning-text))",
         },
-        danger: {
-          700: "hsl(var(--danger-700))",
-          500: "hsl(var(--danger-500))",
-          400: "hsl(var(--danger-400))",
-          100: "hsl(var(--danger-100))",
-          50: "hsl(var(--danger-50))",
+        error: {
+          DEFAULT: "hsl(var(--error))",
+          bg: "hsl(var(--error-bg))",
+          text: "hsl(var(--error-text))",
         },
         info: {
-          500: "hsl(var(--info-500))",
-          100: "hsl(var(--info-100))",
-        },
-        orange: {
-          500: "hsl(var(--orange-500))",
-          100: "hsl(var(--orange-100))",
+          DEFAULT: "hsl(var(--info))",
+          bg: "hsl(var(--info-bg))",
+          text: "hsl(var(--info-text))",
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--radius-lg)",
+        md: "var(--radius-md)",
+        sm: "var(--radius-sm)",
+        xl: "var(--radius-xl)",
       },
       boxShadow: {
         sm: "var(--shadow-sm)",

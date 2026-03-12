@@ -1,35 +1,42 @@
 import { cn } from "@/lib/utils";
 
-const STATUS_BADGE_CONFIG = {
-  PENDING:     { bg: "bg-primary-50", text: "text-primary-500", border: "border-primary-400", label: "Pending" },
-  ASSIGNED:    { bg: "bg-primary-100", text: "text-primary-800", border: "border-primary-500", label: "Assigned" },
-  IN_TRANSIT:  { bg: "bg-warning-100", text: "text-warning-700", border: "border-warning-400", label: "In Transit" },
-  REACHED:     { bg: "bg-orange-100", text: "text-orange-500", border: "border-orange-500", label: "Reached" },
-  DELIVERED:   { bg: "bg-success-100", text: "text-success-700", border: "border-success-500", label: "Delivered" },
-  CANCELLED:   { bg: "bg-danger-100", text: "text-danger-700", border: "border-danger-400", label: "Cancelled" },
-  DISPUTED:    { bg: "bg-orange-100", text: "text-orange-500", border: "border-orange-500", label: "Disputed" },
-  DRAFT:       { bg: "bg-neutral-100", text: "text-neutral-600", border: "border-neutral-300", label: "Draft" },
-  SENT:        { bg: "bg-primary-100", text: "text-primary-800", border: "border-primary-500", label: "Sent" },
-  PAID:        { bg: "bg-success-100", text: "text-success-700", border: "border-success-500", label: "Paid" },
-  OVERDUE:     { bg: "bg-danger-100", text: "text-danger-700", border: "border-danger-500", label: "Overdue" },
-  PARTIALLY_PAID: { bg: "bg-warning-100", text: "text-warning-700", border: "border-warning-500", label: "Partial" },
-  AVAILABLE:   { bg: "bg-success-100", text: "text-success-700", border: "border-success-500", label: "Available" },
-  IN_USE:      { bg: "bg-warning-100", text: "text-warning-700", border: "border-warning-500", label: "In Use" },
-  IN_MAINTENANCE: { bg: "bg-orange-100", text: "text-orange-500", border: "border-orange-500", label: "Maintenance" },
-  RETIRED:     { bg: "bg-neutral-100", text: "text-neutral-600", border: "border-neutral-300", label: "Retired" },
-  ON_TRIP:     { bg: "bg-warning-100", text: "text-warning-700", border: "border-warning-400", label: "On Trip" },
-  ON_LEAVE:    { bg: "bg-primary-50", text: "text-primary-500", border: "border-primary-400", label: "On Leave" },
-  INACTIVE:    { bg: "bg-neutral-100", text: "text-neutral-600", border: "border-neutral-300", label: "Inactive" },
-  ACTIVE:      { bg: "bg-success-100", text: "text-success-700", border: "border-success-500", label: "Active" },
-  OK:          { bg: "bg-success-100", text: "text-success-700", border: "border-success-500", label: "Valid" },
-  WARNING:     { bg: "bg-warning-100", text: "text-warning-700", border: "border-warning-500", label: "Expiring Soon" },
-  EXPIRED:     { bg: "bg-danger-100", text: "text-danger-700", border: "border-danger-500", label: "Expired" },
-} as const;
+interface BadgeStyle {
+  bg: string;
+  text: string;
+  border: string;
+  label: string;
+}
+
+const STATUS_BADGE_CONFIG: Record<string, BadgeStyle> = {
+  PENDING:         { bg: "hsl(280,20%,95%)",  text: "hsl(270,25%,15%)",  border: "hsl(270,10%,88%)",  label: "Pending" },
+  ASSIGNED:        { bg: "hsl(205,85%,93%)",  text: "hsl(205,85%,30%)",  border: "hsl(205,85%,50%)",  label: "Assigned" },
+  IN_TRANSIT:      { bg: "hsl(38,95%,93%)",   text: "hsl(38,95%,30%)",   border: "hsl(38,95%,50%)",   label: "In Transit" },
+  REACHED:         { bg: "hsl(38,95%,88%)",   text: "hsl(38,70%,25%)",   border: "hsl(38,95%,44%)",   label: "Reached" },
+  DELIVERED:       { bg: "hsl(145,65%,92%)",  text: "hsl(145,65%,25%)",  border: "hsl(145,65%,35%)",  label: "Delivered" },
+  CANCELLED:       { bg: "hsl(0,72%,93%)",    text: "hsl(0,72%,35%)",    border: "hsl(0,72%,51%)",    label: "Cancelled" },
+  DISPUTED:        { bg: "hsl(32,95%,93%)",   text: "hsl(32,70%,25%)",   border: "#F5A623",           label: "Disputed" },
+  DRAFT:           { bg: "hsl(280,20%,95%)",  text: "hsl(270,10%,45%)",  border: "hsl(270,10%,88%)",  label: "Draft" },
+  SENT:            { bg: "hsl(205,85%,93%)",  text: "hsl(205,85%,30%)",  border: "hsl(205,85%,50%)",  label: "Sent" },
+  PAID:            { bg: "hsl(145,65%,92%)",  text: "hsl(145,65%,25%)",  border: "hsl(145,65%,35%)",  label: "Paid" },
+  OVERDUE:         { bg: "hsl(0,72%,93%)",    text: "hsl(0,72%,35%)",    border: "hsl(0,72%,51%)",    label: "Overdue" },
+  PARTIALLY_PAID:  { bg: "hsl(38,95%,93%)",   text: "hsl(38,95%,30%)",   border: "hsl(38,95%,50%)",   label: "Partial" },
+  AVAILABLE:       { bg: "hsl(145,65%,92%)",  text: "hsl(145,65%,25%)",  border: "hsl(145,65%,35%)",  label: "Available" },
+  IN_USE:          { bg: "hsl(38,95%,93%)",   text: "hsl(38,95%,30%)",   border: "hsl(38,95%,50%)",   label: "In Use" },
+  IN_MAINTENANCE:  { bg: "hsl(32,95%,93%)",   text: "hsl(32,70%,25%)",   border: "#F5A623",           label: "Maintenance" },
+  RETIRED:         { bg: "hsl(280,20%,95%)",  text: "hsl(270,10%,45%)",  border: "hsl(270,10%,88%)",  label: "Retired" },
+  ON_TRIP:         { bg: "hsl(38,95%,93%)",   text: "hsl(38,95%,30%)",   border: "hsl(38,95%,50%)",   label: "On Trip" },
+  ON_LEAVE:        { bg: "hsl(280,20%,95%)",  text: "hsl(270,25%,15%)",  border: "hsl(270,10%,88%)",  label: "On Leave" },
+  INACTIVE:        { bg: "hsl(280,20%,95%)",  text: "hsl(270,10%,45%)",  border: "hsl(270,10%,88%)",  label: "Inactive" },
+  ACTIVE:          { bg: "hsl(145,65%,92%)",  text: "hsl(145,65%,25%)",  border: "hsl(145,65%,35%)",  label: "Active" },
+  OK:              { bg: "hsl(145,65%,92%)",  text: "hsl(145,65%,25%)",  border: "hsl(145,65%,35%)",  label: "Valid" },
+  WARNING:         { bg: "hsl(38,95%,93%)",   text: "hsl(38,95%,30%)",   border: "hsl(38,95%,50%)",   label: "Expiring Soon" },
+  EXPIRED:         { bg: "hsl(0,72%,93%)",    text: "hsl(0,72%,35%)",    border: "hsl(0,72%,51%)",    label: "Expired" },
+};
 
 type StatusKey = keyof typeof STATUS_BADGE_CONFIG;
 
 interface StatusBadgeProps {
-  status: StatusKey;
+  status: string;
   className?: string;
   showDot?: boolean;
 }
@@ -41,15 +48,20 @@ export function StatusBadge({ status, className, showDot = false }: StatusBadgeP
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider whitespace-nowrap",
-        config.bg,
-        config.text,
-        config.border,
+        "inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.5px] whitespace-nowrap",
         className,
       )}
+      style={{
+        backgroundColor: config.bg,
+        color: config.text,
+        border: `1px solid ${config.border}`,
+      }}
     >
       {showDot && (
-        <span className={cn("h-1.5 w-1.5 rounded-full", config.text.replace("text-", "bg-"))} />
+        <span
+          className="h-1.5 w-1.5 rounded-full"
+          style={{ backgroundColor: config.text }}
+        />
       )}
       {config.label}
     </span>
