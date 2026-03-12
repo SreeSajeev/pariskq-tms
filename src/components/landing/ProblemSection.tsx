@@ -58,7 +58,7 @@ export function ProblemSection() {
                 initial: { opacity: 0, y: 16 },
                 whileInView: { opacity: 1, y: 0 },
               }}
-              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
               className="group relative overflow-hidden rounded-lg border border-danger-100 bg-danger-50/40 p-6 transition-shadow hover:shadow-lg"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-danger-100">

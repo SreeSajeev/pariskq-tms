@@ -171,7 +171,7 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
           <h3 className="font-heading text-lg font-bold text-foreground">Enterprise</h3>
           <p className="mt-1 text-sm text-neutral-500">

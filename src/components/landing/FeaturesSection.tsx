@@ -212,7 +212,7 @@ export function FeaturesSection() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
           <h2 className="font-display text-3xl leading-tight text-foreground md:text-4xl">
             Everything your fleet needs.{" "}

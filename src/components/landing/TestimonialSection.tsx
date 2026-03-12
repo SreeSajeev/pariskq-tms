@@ -47,7 +47,7 @@ export function TestimonialSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 400,
                 damping: 30,
                 delay: i * 0.08,
