@@ -33,7 +33,7 @@ export function TestimonialSection() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
           Built for how Indian transport <span className="text-primary-500">actually works</span>
         </motion.h2>
