@@ -33,7 +33,7 @@ export function HowItWorksSection() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
         >
           From booking to billing in <span className="text-primary-500">4 steps</span>
         </motion.h2>
