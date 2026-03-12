@@ -37,10 +37,10 @@ export function ProblemSection() {
           className="mb-14 max-w-2xl"
           {...fadeUp}
         >
-          <h2 className="font-display text-3xl leading-tight text-foreground md:text-4xl">
+          <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
             Your operation is running on WhatsApp and Excel.
             <br />
-            <span className="text-primary-500">There's a better way.</span>
+            <span className="text-primary">There's a better way.</span>
           </h2>
         </motion.div>
 
@@ -59,20 +59,27 @@ export function ProblemSection() {
                 whileInView: { opacity: 1, y: 0 },
               }}
               transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
-              className="group relative overflow-hidden rounded-lg border border-danger-100 bg-danger-50/40 p-6 transition-shadow hover:shadow-lg"
+              className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-lg"
+              style={{ borderLeft: "3px solid hsl(0,72%,51%)" }}
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-danger-100">
-                <p.icon className="h-5 w-5 text-danger-500" />
+              <div
+                className="mb-4 flex h-10 w-10 items-center justify-center rounded-md"
+                style={{ backgroundColor: "hsl(0,72%,93%)" }}
+              >
+                <p.icon className="h-5 w-5" style={{ color: "hsl(0,72%,51%)" }} />
               </div>
-              <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+              <h3 className="mb-2 text-base font-semibold text-foreground">
                 {p.title}
               </h3>
-              <p className="text-sm leading-relaxed text-neutral-600">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {p.body}
               </p>
-              {/* Strikethrough overlay suggestion */}
-              <div className="absolute right-3 top-3 h-8 w-8 rounded-full bg-danger-100 flex items-center justify-center opacity-60">
-                <span className="text-danger-500 text-lg font-bold">✕</span>
+              {/* Warning cross */}
+              <div
+                className="absolute right-3 top-3 h-8 w-8 rounded-full flex items-center justify-center opacity-60"
+                style={{ backgroundColor: "hsl(0,72%,93%)" }}
+              >
+                <span style={{ color: "hsl(0,72%,51%)" }} className="text-lg font-bold">✕</span>
               </div>
             </motion.div>
           ))}
