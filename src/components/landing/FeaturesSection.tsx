@@ -21,7 +21,7 @@ function FeatureBlock({ reverse, icon: Icon, badge, headline, body, bullets, moc
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
     >
       {/* Text */}
       <div className="flex-1 min-w-0">
