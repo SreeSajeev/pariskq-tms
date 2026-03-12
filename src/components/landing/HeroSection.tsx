@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroDashboardCard } from "./HeroDashboardCard";
 
-const spring = { type: "spring", stiffness: 400, damping: 30, mass: 0.8 };
+const spring = { type: "spring" as const, stiffness: 400, damping: 30, mass: 0.8 };
 
 export function HeroSection() {
   return (

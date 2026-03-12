@@ -19,12 +19,14 @@ const problems = [
   },
 ];
 
-const stagger = { staggerChildren: 0.08 };
+const stagger = {
+  whileInView: { transition: { staggerChildren: 0.08 } },
+};
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { type: "spring", stiffness: 400, damping: 30 },
+  transition: { type: "spring" as const, stiffness: 400, damping: 30 },
 };
 
 export function ProblemSection() {
