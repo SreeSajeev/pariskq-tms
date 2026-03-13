@@ -35,7 +35,7 @@ export default function ForgotPasswordPage() {
               <div className="space-y-1.5">
                 <Label>Email address</Label>
                 <Input type="email" placeholder="you@company.com" {...register('email')} />
-                {errors.email && <p className="text-xs text-error">{errors.email.message}</p>}
+                {errors.email && <p className="text-xs text-error">{errors.email.message as string}</p>}
               </div>
               <Button type="submit" className="w-full h-11" disabled={isLoading}>
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
